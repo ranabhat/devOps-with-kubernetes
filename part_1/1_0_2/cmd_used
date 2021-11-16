@@ -1,0 +1,14 @@
+Script started on Fri Oct 29 16:54:53 2021
+command: kubectl create deployment project-app --image=bronepeace/project-app
+deployment.apps/project-app created
+
+Script done on Fri Oct 29 16:54:53 2021
+Script started on Fri Oct 29 16:55:47 2021
+command: kubectl logs -f project-app-9bdf84c9d-b92fc
+Server started in port 5000
+[2021-10-29 13:55:16 +0000] [9] [INFO] Starting gunicorn 20.1.0
+[2021-10-29 13:55:16 +0000] [9] [INFO] Listening at: http://127.0.0.1:5000 (9)
+[2021-10-29 13:55:16 +0000] [9] [INFO] Using worker: sync
+[2021-10-29 13:55:16 +0000] [11] [INFO] Booting worker with pid: 11
+^C
+Script done on Fri Oct 29 16:55:51 2021

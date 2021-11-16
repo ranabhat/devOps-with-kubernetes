@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: log-output-app-dep
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: log-output-app
+  template:
+    metadata:
+      labels:
+        app: log-output-app
+    spec:
+      volumes:
+        - name: shared-image
+          emptyDir: {}
+      containers:
+        - name: log-output-timestamp-generator-app
+          image: bronepeace/log-output-timestamp-generator-app:latest
+          volumeMounts:
+            - name: shared-image
+              mountPath: /usr/src/app/files
+        - name: log-output-view-hash-app
+          image: bronepeace/log-output-view-hash-app:latest
+          volumeMounts:
+            - name: shared-image
+              mountPath: /usr/src/app/files

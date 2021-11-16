@@ -1,0 +1,7 @@
+Script started on Mon Nov  1 16:09:24 2021
+command: kubectl port-forward project-app-dep-5f77789b5c-86qmx 8000:5000
+Forwarding from 127.0.0.1:8000 -> 5000
+Forwarding from [::1]:8000 -> 5000
+Handling connection for 8000
+^C
+Script done on Mon Nov  1 16:09:36 2021
