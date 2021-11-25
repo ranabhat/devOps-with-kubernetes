@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: log-output-ping-pong-app-dep
+  namespace: log-ping-pong-ns
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: log-output-ping-pong-app
+  template:
+    metadata:
+      labels:
+        app: log-output-ping-pong-app
+    spec:
+      # volumes:
+      #   - name: shared-image
+      #     persistentVolumeClaim:
+      #       claimName: image-claim
+      containers:
+        - name: log-output-app
+          image: bronepeace/log-output-app:2_0_1
+          imagePullPolicy: Always
+          # volumeMounts:
+          #   - name: shared-image
+          #     mountPath: /usr/src/app/files
+        - name: ping-pong-app
+          image: bronepeace/ping-pong-app:2_0_1
+          imagePullPolicy: Always
+          # volumeMounts:
+          #   - name: shared-image
+          #     mountPath: /usr/src/app/files

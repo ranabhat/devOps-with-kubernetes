@@ -1,1 +1,4 @@
 .DS_Store
+key.txt
+postgres-secret.yaml
+docker-compose.yml

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div id="center">  
+        <img src="{{url_for('static', filename='image_name.jpg')}}" height="500px" width="500px"/>
+        <form method="post" action="/">
+            <input name="createtodo" id="createtodo" maxlength="140">
+            <input type="submit" value="Create TODO">
+        </form>
+    </div> 
+    <div id="center"> 
+        <ul>
+            {% if todo_list %}
+                {% for n in todo_list %}
+                <li>{{n}}</li>
+                {% endfor %}
+            {% endif %}
+        </ul>
+    </div>
+{% endblock %}
+

@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: project-app-dep
+  namespace: project-app-ns
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: project-app
+  template:
+    metadata:
+      labels:
+        app: project-app
+    spec:
+      volumes:
+        - name: shared-image
+          persistentVolumeClaim:
+            claimName: project-app-claim
+      containers:
+      - name: project-app
+        image: bronepeace/project-app:2_0_2
+        imagePullPolicy: Always
+        volumeMounts:
+          - name: shared-image
+            mountPath: /usr/src/app/files
+      - name: backend-project-app
+        image: bronepeace/backend-project-app:latest
+        imagePullPolicy: Always
